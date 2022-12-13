@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class DisHastanesi {
+public class DisHastanesi extends SaglıkKurumu{
+
 }

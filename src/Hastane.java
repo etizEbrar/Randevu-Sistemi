@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public class Hastane {
+public class Hastane extends SaglıkKurumu {
+
+
 }
