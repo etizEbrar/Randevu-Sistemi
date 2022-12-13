@@ -1,2 +1,7 @@
-package PACKAGE_NAME;public class Hasta {
+import java.util.List;
+
+public class Hasta extends User {
+    public List<Randevu> RandevuList;
+
+
 }
