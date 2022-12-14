@@ -1,7 +1,7 @@
 import java.util.List;
 
-<<<<<<< HEAD
-public class Doktor extends User implements IRandevu{
+
+public class  Doktor extends User implements IRandevu{
     public Doktor(){
 
     }
@@ -18,14 +18,4 @@ public class Doktor extends User implements IRandevu{
     public void DeleteRandevu() {
 
     }
-=======
-public class Doktor extends User {
-    public Doktor(){
-
-    }
-
-    public String Brans;
-    public int KurumId;
-    public List<Randevu> RandevuList;
->>>>>>> ac448ae3c1661cea5e22a085e4053a83365f28cb
 }
