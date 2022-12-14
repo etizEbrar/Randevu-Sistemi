@@ -12,7 +12,7 @@
       <change beforePath="$PROJECT_DIR$/src/Hasta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hasta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hastane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hastane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Randevu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Randevu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaglikKurumu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaglikKurumu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SaglıkKurumu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaglıkKurumu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SaglıkOcagı.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaglıkOcagı.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>

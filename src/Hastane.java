@@ -1,4 +1,4 @@
-public class Hastane extends SaglıkKurumu {
+public class Hastane extends SaglikKurumu {
 
 
 }

@@ -1,3 +1,3 @@
-public class DisHastanesi extends SaglıkKurumu{
+public class DisHastanesi extends SaglikKurumu{
 
 }

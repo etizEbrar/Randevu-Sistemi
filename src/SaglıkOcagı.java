@@ -1,2 +1,2 @@
-public class SaglıkOcagı extends SaglıkKurumu{
+public class SaglıkOcagı extends SaglikKurumu{
 }
