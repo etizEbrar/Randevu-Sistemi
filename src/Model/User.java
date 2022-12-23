@@ -1,3 +1,5 @@
+package Model;
+
 public class User {
     public User(){
 
@@ -12,10 +14,11 @@ public class User {
     public int tcNo;
    // public String sehir;
     public int telNo;
-    public UserType UserType;
+    public Model.UserType UserType;
 
 
     public User(String ad, String soyad, int tcNo, int telNo,UserType userType) {
+        super();
         this.ad = ad;
         this.soyad = soyad;
         this.tcNo = tcNo;
@@ -24,20 +27,6 @@ public class User {
         this.UserType = userType;
     }
     //public enum cinsiyet{}
-    public void UserEkle(){
 
-    }
-
-    public void UserSil(){
-
-    }
-
-    public void UserGuncelle(){
-
-    }
-
-    public void UserOku(){
-
-    }
 
 }

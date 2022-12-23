@@ -1,3 +1,9 @@
+package Model;
+
+import Model.Doktor;
+import Model.Hasta;
+import Model.SaglikKurumu;
+
 import java.time.LocalDate;
 
 public class Randevu {
@@ -7,7 +13,7 @@ public class Randevu {
     public Doktor doktorId;
     public SaglikKurumu kurumId;
     public LocalDate tarih;
-    public Kategori Kategori;
+    public Model.Kategori Kategori;
 
 }
 

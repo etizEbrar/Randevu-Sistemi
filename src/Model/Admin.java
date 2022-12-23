@@ -1,4 +1,6 @@
-public class Admin extends User{
+package Model;
+
+public class Admin extends User {
 
     public void KurumEkle() {
 

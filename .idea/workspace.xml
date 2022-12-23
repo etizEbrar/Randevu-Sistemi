@@ -5,21 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="045f7f9e-684f-4eb9-8d5a-4c1b85899868" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SaglikKurumu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Helper/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/CurrentUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DisHastanesi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisHastanesi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Doktor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doktor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hasta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hasta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hastane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hastane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Randevu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Randevu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaglıkKurumu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaglıkKurumu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaglıkOcagı.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaglıkOcagı.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RandevuSis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RandevuSis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Departman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Departman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DisHastanesi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/DisHastanesi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doktor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Doktor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hasta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hasta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hastane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hastane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IRandevu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IRandevu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kategori.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Kategori.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Randevu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Randevu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SaglikKurumu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SaglikKurumu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SaglıkOcagı.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SaglıkOcagı.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
@@ -50,15 +63,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "last_opened_file_path": "C:/Users/beste/source/repos/Randevu-Sistemi/lib/mysql-connector-j-8.0.31.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Model.Main" />
       <module name="RandevuSis" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,5 +110,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Helper/DBConnection.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,13 +1,17 @@
+package Model;
+
+import Model.Doktor;
+
 import java.util.List;
 
 public class SaglikKurumu {
-    public String Ismi;
+    public String Isim;
     public String Il;
     public String Ilce;
     public String Adress;
     public List<Doktor> DoktorList;
 
-    public Kategori Kategori;
+    public Model.Kategori Kategori;
 
 
     public void KurumEkle() {

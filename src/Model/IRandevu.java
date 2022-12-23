@@ -1,3 +1,7 @@
+package Model;
+
+import Model.Randevu;
+
 import java.util.List;
 
 public interface IRandevu {
