@@ -5,28 +5,23 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 public class DBConnection {
 
-    // Connection c = null;
+    Connection c = null;
 
     public DBConnection() {
 
     }
-    Connection connection = null;
-    public Connection connDb() {
-
-
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hastane", "root", "ahbubenyokmu123");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from person");
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString("ad"));
+        public Connection connDb() {
+            try {
+                this.c = DriverManager
+                        .getConnection("jdbc:mysql://localhost:3306/hastane", "root", "ahbubenyokmu123_");
+                System.out.println("Bağlandı..");
+                return c;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return connection;
-        } catch (Exception e) {
-            e.printStackTrace();
 
+            return c;
 
         }
-        return connection;
-    }
+
 }

@@ -1,10 +1,13 @@
 package Model;
 
+import Helper.DBConnection;
+
 public class User {
     public User(){
 
 
     }
+    DBConnection conn = new DBConnection();
     public Model.UserType UserType;
     public int id;
     public String ad;

@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="045f7f9e-684f-4eb9-8d5a-4c1b85899868" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helper/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helper/DBConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/CurrentUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DisHastanesi.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/SaglikKurumu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SaglikKurumu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/SaglıkOcagı.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,14 +117,9 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Helper/DBConnection.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Model/SaglikKurumu.java</url>
-          <line>36</line>
+          <line>38</line>
           <properties class="Model.SaglikKurumu" method="getIl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
