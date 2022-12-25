@@ -72,12 +72,12 @@ public class User {
 
 
 
-    public User(String ad, String soyad, String tcNo, String telNo,UserType userType) {
+    public User(String ad, String soyad, String tcNo, String sifre, UserType userType) {
         super();
         this.ad = ad;
         this.soyad = soyad;
         this.tcNo = tcNo;
-        // this.sehir = sehir;
+        this.sifre=sifre;
         this.telNo = telNo;
         this.UserType = userType;
     }

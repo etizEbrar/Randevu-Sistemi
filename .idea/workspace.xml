@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="045f7f9e-684f-4eb9-8d5a-4c1b85899868" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Helper/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helper/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helper/DBConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/SaglikKurumu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SaglikKurumu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hasta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hasta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hastane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
