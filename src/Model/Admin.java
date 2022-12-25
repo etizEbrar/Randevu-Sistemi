@@ -2,19 +2,23 @@ package Model;
 
 public class Admin extends User {
 
-    public void KurumEkle() {
-
+    public Admin() {
     }
 
-    public void KurumSil(){
+    public int id;
 
+    public Admin(String ad, String soyad, String tcNo, String telNo, Model.UserType userType, int id) {
+        super(ad, soyad, tcNo, telNo, userType);
+        this.id = id;
     }
 
-    public void KurumGuncelle(){
-
+    @Override
+    public int getId() {
+        return id;
     }
 
-    public void KurumGetir(){
-
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 }
