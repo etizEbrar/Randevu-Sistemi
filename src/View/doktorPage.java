@@ -1,4 +1,4 @@
-package windowBuilder;
+package View;
 
 import java.awt.EventQueue;
 
@@ -13,6 +13,8 @@ import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JTable;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class doktorPage extends JFrame {
 
@@ -81,8 +83,14 @@ public class doktorPage extends JFrame {
 		lblDoktorIlemleri.setBounds(225, 24, 349, 90);
 		contentPane.add(lblDoktorIlemleri);
 		
-		JButton btnNewButton_2 = new JButton("Güvenli Çıkış");
-		btnNewButton_2.setBounds(666, 6, 117, 29);
-		contentPane.add(btnNewButton_2);
+		JButton güvenliCıkıs = new JButton("Güvenli Çıkış");
+		güvenliCıkıs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame1 f1 = new frame1();
+				f1.setVisible(true);
+			}
+		});
+		güvenliCıkıs.setBounds(666, 6, 117, 29);
+		contentPane.add(güvenliCıkıs);
 	}
 }

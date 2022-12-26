@@ -1,4 +1,4 @@
-package windowBuilder;
+package View;
 
 import java.awt.EventQueue;
 
@@ -19,7 +19,7 @@ import javax.swing.DropMode;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 
-public class frame1 extends JFrame  {
+public class admin_doktorLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtTcNo;
@@ -32,7 +32,7 @@ public class frame1 extends JFrame  {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame1 frame = new frame1();
+					admin_doktorLogin frame = new admin_doktorLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,10 +44,7 @@ public class frame1 extends JFrame  {
 	/**
 	 * Create the frame.
 	 */
-	
-	JButton doktorButonu;
-	
-	public frame1() {
+	public admin_doktorLogin() {
 		setBackground(UIManager.getColor("Button.darkShadow"));
 		setTitle("HASTANE RANDEVU SİSTEMİ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,13 +66,15 @@ public class frame1 extends JFrame  {
 		btnNewButton_2.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame1 f1 = new frame1();
+				f1.setVisible(true);
 			}
 		});
 		butonlar.add(btnNewButton_2);
 		
-		JButton doktorButonu = new JButton("Doktor Girişi");
-		doktorButonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		butonlar.add(doktorButonu);
+		JButton btnNewButton_1 = new JButton("Doktor Girişi");
+		btnNewButton_1.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		butonlar.add(btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("admin");
 		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 20));
@@ -113,11 +112,6 @@ public class frame1 extends JFrame  {
 		textField.setBounds(6, 71, 358, 48);
 		login.add(textField);
 		
-		JButton btnNewButton_3 = new JButton("Kayıt Ol");
-		btnNewButton_3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnNewButton_3.setBounds(6, 256, 173, 48);
-		login.add(btnNewButton_3);
-		
 		JButton btnNewButton_3_1 = new JButton("Giriş Yap");
 		btnNewButton_3_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnNewButton_3_1.addActionListener(new ActionListener() {
@@ -133,7 +127,4 @@ public class frame1 extends JFrame  {
 		lblNewLabel.setBounds(6, 28, 788, 75);
 		contentPane.add(lblNewLabel);
 	}
-
-	
-	
 }

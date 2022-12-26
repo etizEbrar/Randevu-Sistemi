@@ -1,25 +1,12 @@
-package windowBuilder;
+package View;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import javax.swing.UIManager;
-import javax.swing.JTextField;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
-import javax.swing.DropMode;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
+import java.awt.event.ActionListener;
 
-public class admin_doktorLogin extends JFrame {
+public class frame1 extends JFrame   {
 
 	private JPanel contentPane;
 	private JTextField txtTcNo;
@@ -32,7 +19,7 @@ public class admin_doktorLogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					admin_doktorLogin frame = new admin_doktorLogin();
+					frame1 frame = new frame1();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +31,11 @@ public class admin_doktorLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public admin_doktorLogin() {
+	
+	JButton doktorButonu;
+	
+	
+	public frame1() {
 		setBackground(UIManager.getColor("Button.darkShadow"));
 		setTitle("HASTANE RANDEVU SİSTEMİ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,21 +53,31 @@ public class admin_doktorLogin extends JFrame {
 		contentPane.add(butonlar);
 		butonlar.setLayout(new GridLayout(3, 1, 0, 10));
 		
-		JButton btnNewButton_2 = new JButton("Hasta Girişi");
-		btnNewButton_2.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton hasta_butonu = new JButton("Hasta Girişi");
+		hasta_butonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		
+		butonlar.add(hasta_butonu);
+		
+		JButton doktor_butonu = new JButton("Doktor Girişi");
+		doktor_butonu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				admin_doktorLogin ad = new admin_doktorLogin();
+				ad.setVisible(true);
+				
 			}
 		});
-		butonlar.add(btnNewButton_2);
+		doktor_butonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		butonlar.add(doktor_butonu);
 		
-		JButton btnNewButton_1 = new JButton("Doktor Girişi");
-		btnNewButton_1.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		butonlar.add(btnNewButton_1);
-		
-		JButton btnNewButton = new JButton("admin");
-		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		butonlar.add(btnNewButton);
+		JButton admin_butonu = new JButton("admin");
+		admin_butonu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				admin_doktorLogin ad = new admin_doktorLogin();
+				ad.setVisible(true);
+			}
+		});
+		admin_butonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		butonlar.add(admin_butonu);
 		
 		JPanel login = new JPanel();
 		login.setBackground(Color.LIGHT_GRAY);
@@ -110,6 +111,11 @@ public class admin_doktorLogin extends JFrame {
 		textField.setBounds(6, 71, 358, 48);
 		login.add(textField);
 		
+		JButton btnNewButton_3 = new JButton("Kayıt Ol");
+		btnNewButton_3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnNewButton_3.setBounds(6, 256, 173, 48);
+		login.add(btnNewButton_3);
+		
 		JButton btnNewButton_3_1 = new JButton("Giriş Yap");
 		btnNewButton_3_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnNewButton_3_1.addActionListener(new ActionListener() {
@@ -125,4 +131,13 @@ public class admin_doktorLogin extends JFrame {
 		lblNewLabel.setBounds(6, 28, 788, 75);
 		contentPane.add(lblNewLabel);
 	}
+
+	
+	
+	
+
+
+	
+		
+	
 }

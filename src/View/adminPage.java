@@ -1,32 +1,20 @@
-package windowBuilder;
+package View;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
 
 public class adminPage extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
@@ -111,7 +99,7 @@ public class adminPage extends JFrame {
 		btnNewButton_1.setBounds(458, 280, 230, 89);
 		panel_1.add(btnNewButton_1);
 		
-		String[] hastaneTurleri = {"hsatane","diş hastanesi","sağlık ocağı"};
+		String[] hastaneTurleri = {"hastane","diş hastanesi","sağlık ocağı"};
 		
 		JComboBox combobox = new JComboBox(hastaneTurleri);
 		combobox.setBounds(85, 342, 262, 27);
@@ -126,36 +114,6 @@ public class adminPage extends JFrame {
 		tabbedPane.addTab("Kurum ekle", null, panel, null);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Kurum Adı:");
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(85, 49, 93, 34);
-		panel.add(lblNewLabel_1);
-		
-		textField = new JTextField();
-		textField.setBounds(85, 82, 262, 34);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("İl:");
-		lblNewLabel_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(85, 175, 93, 34);
-		panel.add(lblNewLabel_1_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(85, 208, 262, 34);
-		panel.add(textField_1);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("İlçe:");
-		lblNewLabel_1_2.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_2.setBounds(85, 301, 93, 34);
-		panel.add(lblNewLabel_1_2);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(85, 334, 262, 34);
-		panel.add(textField_2);
-		
 		JButton btnNewButton = new JButton("Kurum ekle");
 		btnNewButton.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -165,51 +123,101 @@ public class adminPage extends JFrame {
 		btnNewButton.setBounds(458, 279, 230, 89);
 		panel.add(btnNewButton);
 		
+		JLabel lblNewLabel_1_3_2 = new JLabel("Kurum Adı:");
+		lblNewLabel_1_3_2.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_3_2.setBounds(78, 49, 93, 34);
+		panel.add(lblNewLabel_1_3_2);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(78, 82, 262, 34);
+		panel.add(textField);
+		
+		JLabel lblNewLabel_1_1_1_3 = new JLabel("İl:");
+		lblNewLabel_1_1_1_3.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_1_1_3.setBounds(78, 140, 93, 34);
+		panel.add(lblNewLabel_1_1_1_3);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(78, 173, 262, 34);
+		panel.add(textField_1);
+		
+		JLabel lblNewLabel_1_2_1_2 = new JLabel("İlçe:");
+		lblNewLabel_1_2_1_2.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_2_1_2.setBounds(78, 229, 93, 34);
+		panel.add(lblNewLabel_1_2_1_2);
+		
+		JLabel lblNewLabel_1_1_1_2_1 = new JLabel("Hastane türü");
+		lblNewLabel_1_1_1_2_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_1_1_2_1.setBounds(78, 308, 183, 34);
+		panel.add(lblNewLabel_1_1_1_2_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(78, 262, 262, 34);
+		panel.add(textField_2);
+		
+		JComboBox combobox_1 = new JComboBox(hastaneTurleri);
+		combobox_1.setBounds(78, 341, 262, 27);
+		panel.add(combobox_1);
+		
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Kurum Sil", null, panel_2, null);
 		panel_2.setLayout(null);
-		
-		JLabel lblNewLabel_1_3_1 = new JLabel("Kurum Adı:");
-		lblNewLabel_1_3_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_3_1.setBounds(85, 50, 93, 34);
-		panel_2.add(lblNewLabel_1_3_1);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(85, 83, 262, 34);
-		panel_2.add(textField_6);
-		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("İl:");
-		lblNewLabel_1_1_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_1_1_1.setBounds(85, 176, 93, 34);
-		panel_2.add(lblNewLabel_1_1_1_1);
-		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(85, 209, 262, 34);
-		panel_2.add(textField_7);
-		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("İlçe:");
-		lblNewLabel_1_2_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_2_1_1.setBounds(85, 302, 93, 34);
-		panel_2.add(lblNewLabel_1_2_1_1);
-		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(85, 335, 262, 34);
-		panel_2.add(textField_8);
 		
 		JButton btnNewButton_1_1 = new JButton("Kurum sil");
 		btnNewButton_1_1.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		btnNewButton_1_1.setBounds(460, 280, 230, 89);
 		panel_2.add(btnNewButton_1_1);
 		
-		JButton btnNewButton_2 = new JButton("Güvenli Çıkış");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JLabel lblNewLabel_1_3_1 = new JLabel("Kurum Adı:");
+		lblNewLabel_1_3_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_3_1.setBounds(90, 50, 93, 34);
+		panel_2.add(lblNewLabel_1_3_1);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(90, 83, 262, 34);
+		panel_2.add(textField_6);
+		
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("İl:");
+		lblNewLabel_1_1_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_1_1_1.setBounds(90, 141, 93, 34);
+		panel_2.add(lblNewLabel_1_1_1_1);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(90, 174, 262, 34);
+		panel_2.add(textField_7);
+		
+		JLabel lblNewLabel_1_2_1_1 = new JLabel("İlçe:");
+		lblNewLabel_1_2_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_2_1_1.setBounds(90, 230, 93, 34);
+		panel_2.add(lblNewLabel_1_2_1_1);
+		
+		JLabel lblNewLabel_1_1_1_2_2 = new JLabel("Hastane türü");
+		lblNewLabel_1_1_1_2_2.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_1_1_2_2.setBounds(90, 309, 183, 34);
+		panel_2.add(lblNewLabel_1_1_1_2_2);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(90, 263, 262, 34);
+		panel_2.add(textField_8);
+		
+		JComboBox combobox_2 = new JComboBox(hastaneTurleri);
+		combobox_2.setBounds(90, 342, 262, 27);
+		panel_2.add(combobox_2);
+		
+		JButton güvenliCıkıs = new JButton("Güvenli Çıkış");
+		güvenliCıkıs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame1 f1 = new frame1();
+				f1.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(677, 6, 117, 29);
-		contentPane.add(btnNewButton_2);
+		güvenliCıkıs.setBounds(677, 6, 117, 29);
+		contentPane.add(güvenliCıkıs);
 	}
 }

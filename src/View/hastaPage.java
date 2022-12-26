@@ -1,4 +1,4 @@
-package windowBuilder;
+package View;
 
 import java.awt.EventQueue;
 
@@ -74,20 +74,20 @@ public class hastaPage extends JFrame {
 		tabbedPane.addTab("Randevu al", null, panel, null);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_1_3_1 = new JLabel("İl:");
-		lblNewLabel_1_3_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_3_1.setBounds(85, 50, 93, 34);
-		panel.add(lblNewLabel_1_3_1);
+		JLabel ilLabel = new JLabel("İl:");
+		ilLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		ilLabel.setBounds(85, 50, 93, 34);
+		panel.add(ilLabel);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("İlçe:");
-		lblNewLabel_1_1_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_1_1_1.setBounds(85, 133, 93, 34);
-		panel.add(lblNewLabel_1_1_1_1);
+		JLabel ilçeLabel = new JLabel("İlçe:");
+		ilçeLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		ilçeLabel.setBounds(85, 133, 93, 34);
+		panel.add(ilçeLabel);
 		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("Klinik:");
-		lblNewLabel_1_2_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_2_1_1.setBounds(85, 236, 93, 34);
-		panel.add(lblNewLabel_1_2_1_1);
+		JLabel klinikLabel = new JLabel("Klinik:");
+		klinikLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		klinikLabel.setBounds(85, 216, 93, 34);
+		panel.add(klinikLabel);
 		
 		JButton btnNewButton_1_1 = new JButton("ARA");
 		btnNewButton_1_1.setFont(new Font("Lucida Grande", Font.BOLD, 16));
@@ -115,16 +115,16 @@ public class hastaPage extends JFrame {
 		panel.add(comboBox_2_1);
 		
 		JComboBox comboBox_2_2 = new JComboBox();
-		comboBox_2_2.setBounds(95, 269, 275, 52);
+		comboBox_2_2.setBounds(85, 248, 275, 52);
 		panel.add(comboBox_2_2);
 		
-		JLabel lblNewLabel_1_3_1_1 = new JLabel("İl:");
-		lblNewLabel_1_3_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_3_1_1.setBounds(85, 307, 93, 34);
-		panel.add(lblNewLabel_1_3_1_1);
+		JLabel hataneLabel = new JLabel("Hastane:");
+		hataneLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		hataneLabel.setBounds(85, 295, 93, 34);
+		panel.add(hataneLabel);
 		
 		JComboBox comboBox_2_3 = new JComboBox();
-		comboBox_2_3.setBounds(85, 337, 275, 52);
+		comboBox_2_3.setBounds(85, 326, 275, 52);
 		panel.add(comboBox_2_3);
 		 
 		
@@ -161,12 +161,18 @@ public class hastaPage extends JFrame {
 		
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(462, 126, 288, 88);
+		comboBox_1.setBounds(459, 172, 288, 88);
 		panel_1.add(comboBox_1);
 		
-		JButton btnNewButton_2 = new JButton("Güvenli Çıkış");
-		btnNewButton_2.setBounds(677, 6, 117, 29);
-		contentPane_1.add(btnNewButton_2);
+		JButton güvenliCıkıs = new JButton("Güvenli Çıkış");
+		güvenliCıkıs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame1 f1= new frame1();
+				f1.setVisible(true);
+			}
+		});
+		güvenliCıkıs.setBounds(677, 6, 117, 29);
+		contentPane_1.add(güvenliCıkıs);
 		
 
 
