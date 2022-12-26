@@ -66,6 +66,7 @@ public class Hasta extends User implements IRandevu {
     }
     public boolean login(String tcNo, String password) {
         try {
+            //EKSİK usera tası
             st = con.createStatement();
             rs = st.executeQuery("SELECT * FROM user WHERE tcNo = ? AND password = ?");
             preparedStatement.setString(1, tcNo);
