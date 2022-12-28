@@ -65,19 +65,51 @@ public class Hasta extends User implements IRandevu {
         }
     }
     public boolean login(String tcNo, String password) {
-        try {
-            //EKSİK usera tası
-            st = con.createStatement();
-            rs = st.executeQuery("SELECT * FROM user WHERE tcNo = ? AND password = ?");
-            preparedStatement.setString(1, tcNo);
-            preparedStatement.setString(2, password);
-            ResultSet result = preparedStatement.executeQuery();
-            // Eğer kullanıcı veritabanında bulunursa, login işlemi başarılıdır
-            return result.next();
-        } catch (SQLException e) {
-            // Login işlemi sırasında bir hata oluşursa, false döner
-            return false;
+        boolean key = false;
+        {
+            if (tcNo.length() == 0 || password.length() == 0) {
+                Helper.showMsg("fill");
+            }
+            else if(tcNo.length() != 11){
+                Helper.showMsg("warning");
+            }
+
+            else {
+                key = false;
+
+                try {
+                    Connection con = conn.connDb();
+                    Statement st = con.createStatement();
+                    ResultSet rs = st.executeQuery("SELECT *FROM user");
+                    while (rs.next()) {
+                        if (tcNo.equals(rs.getString("kimlikNo"))
+                                && password.equalsIgnoreCase(rs.getString("sifre"))) {
+                            if (rs.getString("userType").equals("Hasta")) {
+                                Hasta hasta = new Hasta();
+                                hasta.setId(rs.getInt("id"));
+                                hasta.setSifre(rs.getString("sifre"));
+                                hasta.setTcNo(rs.getString("kimlikNo"));
+                                hasta.setAd(rs.getString("ad"));
+                                hasta.setSoyad(rs.getString("soyad"));
+                                hasta.setTelNo(rs.getString("telNo"));
+                                hasta.setUserType(Model.UserType.Hasta);
+                                //HastaGUI hGUI = new HastaGUI(hasta);
+                                //hGUI.setVisible(true);
+                                //dispose();
+                                key = true;
+                            }
+                        }
+                    }
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+                if (!key)
+                    Helper.showMsg("Boyle bir hasta bulunamadi lutfen kayit olunuz.");
+
+            }
         }
+
+        return (key);
     }
 
 

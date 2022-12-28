@@ -14,10 +14,10 @@ public class SaglikKurumu {
     public SaglikKurumu(int id, String Isim, String Il, String Ilce, String Adres, Kategori kategori) {
         this.id = id;
         this.Isim = Isim;
-        this.Il=Il;
-        this.Ilce=Ilce;
-        this.Adres=Adres;
-        this.Kategori= Kategori;
+        this.Il = Il;
+        this.Ilce = Ilce;
+        this.Adres = Adres;
+        this.Kategori = Kategori;
     }
 
     public int getId() {
@@ -62,23 +62,23 @@ public class SaglikKurumu {
 
     public Integer getKategori(Kategori Kategori) {
         int i;
-        if(Kategori== Model.Kategori.Hastane)
-            i=1;
-        else if (Kategori== Model.Kategori.SaglikOcagi) {
-            i=2;
-        }
-        else
-            i=3;
-      return i;
+        if (Kategori == Model.Kategori.Hastane)
+            i = 1;
+        else if (Kategori == Model.Kategori.SaglikOcagi) {
+            i = 2;
+        } else
+            i = 3;
+        return i;
     }
 
     public void setKategori(int kategori) {
-        if(kategori==1)
-             Kategori= Model.Kategori.Hastane;
-        else if (kategori==2) {
-            Kategori= Model.Kategori.SaglikOcagi;
-        }
-        else
-            Kategori= Model.Kategori.DisHastanesi;
+        if (kategori == 1)
+            Kategori = Model.Kategori.Hastane;
+        else if (kategori == 2) {
+            Kategori = Model.Kategori.SaglikOcagi;
+        } else
+            Kategori = Model.Kategori.DisHastanesi;
     }
+
+
 }

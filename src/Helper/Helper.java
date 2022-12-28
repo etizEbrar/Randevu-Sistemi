@@ -23,6 +23,9 @@ public class Helper {
             case "error":
                 msg = "Bir hata ile karsilasildi!";
                 break;
+            case "warning":
+                msg = "TC Kimlik No 11 haneli olmalıdır!";
+                break;
             default:
                 msg = str;
 

@@ -1,13 +1,11 @@
 package Model;
 
-import Helper.DBConnection;
-
 import java.sql.*;
 import java.util.ArrayList;
 
 public class Admin extends User {
 
-    DBConnection conn =null;
+  //  DBConnection conn =null;
     Connection con = conn.connDb();
     Statement st = null;
     ResultSet rs = null;
@@ -32,7 +30,7 @@ public class Admin extends User {
         this.id = id;
     }
 
-    public ArrayList<SaglikKurumu> getList() throws SQLException{
+    public  ArrayList<SaglikKurumu> getList() throws SQLException{
         ArrayList<SaglikKurumu> list = new ArrayList<>();
         SaglikKurumu obj;
 
@@ -41,20 +39,22 @@ public class Admin extends User {
             rs = st.executeQuery("SELECT * FROM saglikKurumu");
             while (rs.next()) {
                 obj = new SaglikKurumu ();
-                obj.setId(rs.getInt("id"));
+                obj.setId(rs.getInt("saglikKurumuID"));
                 obj.setIsim(rs.getString("name"));
                 obj.setIl(rs.getString("il"));
                 obj.setIlce(rs.getString("ilce"));
                 obj.setKategori(rs.getInt("kategoriID"));
 
                 list.add(obj);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            st.close();
-            rs.close();
-            con.close();
+         //   st.close();
+            //rs.close();
+            //con.close();
+            System.out.println("list olustu");
         }
 
         return list;
