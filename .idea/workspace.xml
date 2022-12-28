@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="045f7f9e-684f-4eb9-8d5a-4c1b85899868" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Helper/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helper/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helper/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Doktor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Doktor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Hasta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hasta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Randevu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Randevu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/SaglikKurumu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SaglikKurumu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/hastaPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/hastaPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +65,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/beste/source/repos/Randevu-Sistemi",
+    "last_opened_file_path": "C:/Users/beste/source/repos/tasarım",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -80,13 +79,13 @@
       <recent name="C:\Users\beste\source\repos\Randevu-Sistemi\src\View" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.hastaPage">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Model.Main" />
+  <component name="RunManager" selected="Application.windowBuilder.frame1">
+    <configuration name="adminPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.adminPage" />
       <module name="RandevuSis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Model.*" />
+          <option name="PATTERN" value="View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,8 +93,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="doktorPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.doktorPage" />
+    <configuration name="frame1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.frame1" />
       <module name="RandevuSis" />
       <extension name="coverage">
         <pattern>
@@ -120,19 +119,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="randevu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.randevu" />
-      <module name="RandevuSis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="View.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="signUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="View.signUp" />
       <module name="RandevuSis" />
@@ -146,13 +132,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="windowBuilder.frame1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="windowBuilder.frame1" />
+      <module name="RandevuSis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="windowBuilder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.hastaPage" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.windowBuilder.frame1" />
         <item itemvalue="Application.signUp" />
-        <item itemvalue="Application.randevu" />
-        <item itemvalue="Application.doktorPage" />
+        <item itemvalue="Application.frame1" />
+        <item itemvalue="Application.adminPage" />
+        <item itemvalue="Application.hastaPage" />
       </list>
     </recent_temporary>
   </component>
@@ -199,6 +198,25 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Randevu.java</url>
+          <line>53</line>
+          <properties class="Model.Randevu" method="getList2">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Model/Randevu.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Model/Randevu.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

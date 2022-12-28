@@ -10,14 +10,18 @@ public class Admin extends User {
     Statement st = null;
     ResultSet rs = null;
     PreparedStatement preparedStatement = null;
-    public Admin() {
-    }
+   // public Admin() {
+       // super(ad, soyad);
+    //}
 
     public int id;
 
     public Admin(String ad, String soyad, String tcNo, String telNo, Model.UserType userType) {
         super(ad, soyad, tcNo, telNo, userType);
 
+    }
+
+    public Admin() {
     }
 
     @Override

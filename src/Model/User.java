@@ -3,10 +3,7 @@ package Model;
 import Helper.DBConnection;
 
 public class User {
-    public User(){
 
-
-    }
     DBConnection conn = new DBConnection();
     public Model.UserType UserType;
     public int id;
@@ -84,4 +81,11 @@ public class User {
     //public enum cinsiyet{}
 
 
+    public User() {
+    }
+
+    public User(String ad,String soyad) {
+        this.ad = ad;
+        this.soyad=soyad;
+    }
 }

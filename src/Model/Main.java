@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Hello world!");
         DBConnection d=new DBConnection();
         d.connDb();
-        Hasta h=new Hasta();
+      //  Hasta h=new Hasta();
        // h.login("12345678","12");
         Admin a=new Admin();
         a.getList();
@@ -19,6 +19,7 @@ public class Main {
         Randevu r=new Randevu();
 
        System.out.println(r.getList("Mugla"));
+       r.getDoctorsByCategoryID(1);
 
     }
 

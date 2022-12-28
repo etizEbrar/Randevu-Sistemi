@@ -87,23 +87,12 @@ public class hastaPage extends JFrame {
 		hataneLabel.setBounds(85, 216, 93, 34);
 		panel.add(hataneLabel);
 
-		JButton btnNewButton_1_1 = new JButton("ARA");
-		btnNewButton_1_1.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		btnNewButton_1_1.setBounds(458, 280, 230, 89);
-		panel.add(btnNewButton_1_1);
-
-
-
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(388, 50, 318, 207);
 		panel.add(panel_3);
 		panel_3.setLayout(null);
 
-        //DOKTOR SECME
-		JComboBox select_doktor= new JComboBox();
-		select_doktor.setBounds(24, 69, 288, 52);
-		panel_3.add(select_doktor);
-		select_doktor.addItem("Doktor Sec");
+
 
 		String[] saatler = {"10.00", "10.30", "11.00", "11.30", "13.00", "13.30", "14.00", "15.30", "16.00", "16.30"};
         //SAAT SECME
@@ -125,6 +114,11 @@ public class hastaPage extends JFrame {
 		panel.add(select_ilce);
 		select_ilce.addItem("ilce");
 		Randevu r=new Randevu();
+		//HASTANE SECME
+		JComboBox<String> select_hastane = new JComboBox<>();
+		select_hastane.setBounds(85, 248, 275, 52);
+		panel.add(select_hastane);
+		select_hastane .addItem("Hastane seç");
 		//String selectedItem = (String) select_il.getSelectedItem();
 		final boolean[] gelis = {false};
 		//ILE GORE ILCE SIRALAMA
@@ -147,11 +141,7 @@ public class hastaPage extends JFrame {
 			}
 		});
 		gelis[0] =true;
-		//HASTANE SECME
-		JComboBox<String> select_hastane = new JComboBox<>();
-		select_hastane.setBounds(85, 248, 275, 52);
-		panel.add(select_hastane);
-		select_hastane .addItem("Hastane seç");
+
         //İLCEYE GORE HASTANE SECME
 		final boolean[] gelis2 = {false};
 		select_hastane.addActionListener(new ActionListener() {
@@ -174,21 +164,47 @@ public class hastaPage extends JFrame {
 		});
 		gelis2[0] =true;
         //KLINIK SECME
+		String []  klinik={"Klinik seç","Dahiliye","Pediatri","Cildiye"};
 
-
-
-
-
-
-
-
-		JComboBox select_klinik = new JComboBox();
+		JComboBox select_klinik = new JComboBox(klinik);
 		select_klinik .setBounds(85, 326, 275, 52);
 		panel.add(select_klinik );
-		select_klinik .addItem("Klinik seç");
 
+		//DOKTOR SECME
+		JComboBox select_doktor= new JComboBox();
+		select_doktor.setBounds(24, 69, 288, 52);
+		panel_3.add(select_doktor);
+		select_doktor.addItem("Doktor Sec");
 
-			JPanel panel_1 = new JPanel();
+		//KLINIGE GORE DOKTOR SECME
+		final boolean[] gelis3 = {false};
+		select_klinik.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int selectedItem = select_klinik.getSelectedIndex();
+				try {
+					if(gelis2[0]) select_doktor.removeAllItems();
+					if (selectedItem==1){
+						for (int i = 0; i < r.getDoctorsByCategoryID(selectedItem).size(); i++){
+							select_doktor.addItem(new Item(r.getDoctorsByCategoryID(selectedItem).get(i).getId(), r.getDoctorsByCategoryID(selectedItem).get(i).getAd()).toString()); }
+
+					}
+					else if (selectedItem==2) {
+						for (int i = 0; i < r.getDoctorsByCategoryID(selectedItem).size(); i++){
+							select_doktor.addItem(new Item(r.getDoctorsByCategoryID(selectedItem).get(i).getId(), r.getDoctorsByCategoryID(selectedItem).get(i).getAd()).toString()); }
+					}
+					else if(selectedItem==3) {
+						for (int i = 0; i < r.getDoctorsByCategoryID(selectedItem).size(); i++){
+							select_doktor.addItem(new Item(r.getDoctorsByCategoryID(selectedItem).get(i).getId(), r.getDoctorsByCategoryID(selectedItem).get(i).getAd()).toString()); }
+
+					}
+				} catch (SQLException ex) {
+					throw new RuntimeException(ex);
+				}
+			}});
+		gelis3[0] =true;
+
+		JPanel panel_1 = new JPanel();
 			tabbedPane.addTab("Randevularım", null, panel_1, null);
 			panel_1.setLayout(null);
 
@@ -208,7 +224,7 @@ public class hastaPage extends JFrame {
 
 			panel_2.setLayout(null);
 
-			String[][] veri = {{"DOKTOR", "SAAT"}, {"---------------------", "----------------------"}, {"dr.mehmet", "14.00"}, {"dr.ayşe", "12.00"}};
+			String[][] veri = {{"DOKTOR", "SAAT"}, {"dr.mehmet", "14.00"}, {"dr.ayşe", "12.00"}};
 			String[] başlık = {"DOKTOR", "SAAT"};
 
 			table = new JTable(veri, başlık);
@@ -217,9 +233,33 @@ public class hastaPage extends JFrame {
 			panel_2.add(table);
 
 
-			JComboBox comboBox_1 = new JComboBox();
-			comboBox_1.setBounds(459, 172, 288, 88);
-			panel_1.add(comboBox_1);
+		//	JComboBox comboBox_1 = new JComboBox();
+		//	comboBox_1.setBounds(459, 172, 288, 88);
+		//	panel_1.add(comboBox_1);
+
+		//BUTON
+		JButton button_randevu = new JButton("Randevu Oluştur");
+		button_randevu.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		button_randevu.setBounds(458, 280, 230, 89);
+		panel.add(button_randevu);
+		//
+		button_randevu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					JOptionPane.showMessageDialog(null, "Basarıyla randevu olusturuldu", "Randevu", JOptionPane.INFORMATION_MESSAGE);
+					select_ilce.removeAllItems();
+					select_hastane.removeAllItems();
+					select_doktor.removeAllItems();
+
+				} catch (HeadlessException ex) {
+					throw new RuntimeException(ex);
+
+				}
+			}
+		});
+
+
 
 			JButton güvenliCıkıs = new JButton("Güvenli Çıkış");
 			güvenliCıkıs.addActionListener(new ActionListener() {

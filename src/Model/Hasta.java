@@ -11,12 +11,12 @@ public class Hasta extends User implements IRandevu {
     Statement st = null;
     ResultSet rs = null;
     PreparedStatement preparedStatement = null;
-    public Hasta() {
-        super();
-    }
 
     public Hasta(String ad, String soyad, String tcNo, String sifre, String telNo, Model.UserType userType) {
         super(ad, soyad, tcNo, sifre, userType);
+    }
+
+    public Hasta() {
     }
 
     @Override
