@@ -33,7 +33,7 @@ public class Randevu {
         SaglikKurumu obj;
         try {
             st = con.createStatement();
-            String query ="    SELECT ilce FROM saglikkurumu WHERE il = '"+ item +"'     ";
+            String query ="    SELECT DISTINCT ilce FROM saglikkurumu WHERE il = '"+ item +"'  ORDER BY ilce ASC    ";
             rs = st.executeQuery(query);
             while (rs.next()) {
                 obj = new SaglikKurumu ();
@@ -98,6 +98,7 @@ public class Randevu {
 
         return doctors;
     }
+
 }
 
 

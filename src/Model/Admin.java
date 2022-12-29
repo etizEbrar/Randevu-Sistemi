@@ -40,14 +40,14 @@ public class Admin extends User {
 
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT * FROM saglikKurumu");
+            rs = st.executeQuery("SELECT * FROM saglikkurumu");
             while (rs.next()) {
                 obj = new SaglikKurumu ();
-                obj.setId(rs.getInt("saglikKurumuID"));
-                obj.setIsim(rs.getString("name"));
+               obj.setId(rs.getInt("saglikKurumuID"));
+               obj.setIsim(rs.getString("name"));
                 obj.setIl(rs.getString("il"));
-                obj.setIlce(rs.getString("ilce"));
-                obj.setKategori(rs.getInt("kategoriID"));
+               obj.setIlce(rs.getString("ilce"));
+               obj.setKategori(rs.getInt("kategoriID"));
 
                 list.add(obj);
 
@@ -63,17 +63,25 @@ public class Admin extends User {
 
         return list;
     }
-    public boolean addSaglikKurumu(String name, String il, String ilce,String adres,String kategoriID) throws SQLException {
-        String query = "INSERT INTO saglikKurumu " + "(name,il,ilce,kategoriID,adres) VALUES" + "(?,?,?,?,?)";
+    public boolean addSaglikKurumu(String name, String il, String ilce,String kategoriID) throws SQLException {
+        String query = "INSERT INTO saglikKurumu " + "(name,il,ilce,kategoriID) VALUES" + "(?,?,?,?)";
         boolean key = false;
+        int kat;
+        if(kategoriID=="hastane")
+            kat=1;
+        else if(kategoriID == "sağlık ocağı")
+            kat=2;
+        else
+            kat=3;
+
         try {
             st = con.createStatement();
             preparedStatement = con.prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, il);
             preparedStatement.setString(3, ilce);
-            preparedStatement.setString(4, kategoriID);
-            preparedStatement.setString(5,adres);
+            preparedStatement.setInt(4, kat);
+          //  preparedStatement.setString(5,adres);
             preparedStatement.executeUpdate();
             key = true;
         } catch (Exception e) {

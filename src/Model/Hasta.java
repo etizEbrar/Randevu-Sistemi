@@ -34,7 +34,7 @@ public class Hasta extends User implements IRandevu {
         String query = "INSERT INTO user" + "(ad,soyad,kimlikNo,telNo,sifre,userType) VALUES" + " (?,?,?,?,?,?)";
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT * FROM user WHERE kimlikNo='" + tcNo + "'");
+            rs = st.executeQuery("SELECT * FROM user WHERE kimlikNo='" + tcNo + "' and userType= 'Hasta'");
             while (rs.next()) {
                 duplicate = true;
                 Helper.showMsg("bu tc numarasina ait bir kayit bulunmaktadir");
