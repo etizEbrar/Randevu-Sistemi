@@ -13,13 +13,17 @@ public class Main {
         d.connDb();
       //  Hasta h=new Hasta();
        // h.login("12345678","12");
-        Admin a=new Admin();
-        a.getList();
+       // Admin a=new Admin();
+     //   a.getList();
       //  h.register("beste","kucuk","33413125599","1234","05389839690");
         Randevu r=new Randevu();
 
-       System.out.println(r.getList("Mugla"));
-       r.getDoctorsByCategoryID(1);
+      // System.out.println(r.getList("Mugla"));
+       //r.getDoctorsByCategoryID(1);
+        Hasta h=new Hasta();
+        h.login("33413125596","1234");
+
+
 
     }
 

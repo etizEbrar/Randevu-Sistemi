@@ -1,10 +1,13 @@
 package View;
 
+import Model.Hasta;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class frame1 extends JFrame   {
 
@@ -53,27 +56,16 @@ public class frame1 extends JFrame   {
 		contentPane.add(butonlar);
 		butonlar.setLayout(new GridLayout(3, 1, 0, 10));
 		
-		JButton hasta_butonu = new JButton("Hasta Girişi");
-		hasta_butonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		JButton admin_butonu = new JButton("Admin Girişi");
+		admin_butonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		
-		butonlar.add(hasta_butonu);
-		
-		JButton doktor_butonu = new JButton("Doktor Girişi");
-		doktor_butonu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				admin_doktorLogin ad = new admin_doktorLogin();
-				ad.setVisible(true);
-				
-			}
-		});
-		doktor_butonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		butonlar.add(doktor_butonu);
-		
-		JButton admin_butonu = new JButton("admin");
+		butonlar.add(admin_butonu);
+
 		admin_butonu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				admin_doktorLogin ad = new admin_doktorLogin();
 				ad.setVisible(true);
+				frame1.this.setVisible(false);
 			}
 		});
 		admin_butonu.setFont(new Font("Arial Black", Font.PLAIN, 20));
@@ -97,16 +89,16 @@ public class frame1 extends JFrame   {
 		lblNewLabel_1_1.setBounds(6, 34, 161, 40);
 		login.add(lblNewLabel_1_1);
 		
-		txtTcNo = new JTextField();
+		txtTcNo = new JPasswordField();
 		txtTcNo.setFont(new Font("Menlo", Font.PLAIN, 13));
-		txtTcNo.setText("Parola");
+		txtTcNo.setText("");
 		txtTcNo.setBounds(6, 185, 358, 48);
 		login.add(txtTcNo);
 		txtTcNo.setColumns(10);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Menlo", Font.PLAIN, 13));
-		textField.setText("TC NO");
+		textField.setText("");
 		textField.setColumns(10);
 		textField.setBounds(6, 71, 358, 48);
 		login.add(textField);
@@ -115,11 +107,36 @@ public class frame1 extends JFrame   {
 		btnNewButton_3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnNewButton_3.setBounds(6, 256, 173, 48);
 		login.add(btnNewButton_3);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			 signUp s=new signUp();
+			 s.setVisible(true);
+			 frame1.this.setVisible(false);
+			}
+		});
 		
 		JButton btnNewButton_3_1 = new JButton("Giriş Yap");
 		btnNewButton_3_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnNewButton_3_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Hasta h=new Hasta();
+				boolean key;
+				key=h.login(textField.getText(),txtTcNo.getText());
+				if(key){
+					hastaPage ad = null;
+					try {
+						ad = new hastaPage();
+					} catch (SQLException ex) {
+						throw new RuntimeException(ex);
+					}
+					ad.setVisible(true);
+					frame1.this.setVisible(false);
+
+				}
+
+
+
 			}
 		});
 		btnNewButton_3_1.setBounds(216, 256, 173, 48);

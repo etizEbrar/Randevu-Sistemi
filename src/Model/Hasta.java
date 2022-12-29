@@ -65,16 +65,15 @@ public class Hasta extends User implements IRandevu {
         }
     }
     public boolean login(String tcNo, String password) {
-        boolean key = false;
+        boolean key;
         {
+            key = false;
+
             if (tcNo.length() == 0 || password.length() == 0) {
                 Helper.showMsg("fill");
-            }
-            else if(tcNo.length() != 11){
+            } else if (tcNo.length() != 11) {
                 Helper.showMsg("warning");
-            }
-
-            else {
+            } else {
                 key = false;
 
                 try {
@@ -86,7 +85,7 @@ public class Hasta extends User implements IRandevu {
                                 && password.equalsIgnoreCase(rs.getString("sifre"))) {
                             if (rs.getString("userType").equals("Hasta")) {
                                 Hasta hasta = new Hasta();
-                                hasta.setId(rs.getInt("id"));
+                                hasta.setId(rs.getInt("userID"));
                                 hasta.setSifre(rs.getString("sifre"));
                                 hasta.setTcNo(rs.getString("kimlikNo"));
                                 hasta.setAd(rs.getString("ad"));

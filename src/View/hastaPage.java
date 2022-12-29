@@ -252,6 +252,7 @@ public class hastaPage extends JFrame {
 					select_hastane.removeAllItems();
 					select_doktor.removeAllItems();
 
+
 				} catch (HeadlessException ex) {
 					throw new RuntimeException(ex);
 
@@ -266,6 +267,7 @@ public class hastaPage extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					frame1 f1 = new frame1();
 					f1.setVisible(true);
+					hastaPage.this.setVisible(false);
 				}
 			});
 			güvenliCıkıs.setBounds(677, 6, 117, 29);

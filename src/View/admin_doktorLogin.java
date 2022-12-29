@@ -1,23 +1,12 @@
 package View;
 
-import java.awt.EventQueue;
+import Model.User;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import javax.swing.UIManager;
-import javax.swing.JTextField;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
-import javax.swing.DropMode;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
+import java.awt.event.ActionListener;
 
 public class admin_doktorLogin extends JFrame {
 
@@ -58,8 +47,15 @@ public class admin_doktorLogin extends JFrame {
 		
 		JPanel butonlar = new JPanel();
 		butonlar.setBackground(Color.LIGHT_GRAY);
-		butonlar.setBounds(38, 156, 236, 387);
+		butonlar.setBounds(38, 187, 236, 329);
 		contentPane.add(butonlar);
+
+		GridBagLayout gbl_butonlar = new GridBagLayout();
+		gbl_butonlar.columnWidths = new int[]{236, 0};
+		gbl_butonlar.rowHeights = new int[]{37, 122, 122, 0};
+		gbl_butonlar.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_butonlar.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		butonlar.setLayout(gbl_butonlar);
 		butonlar.setLayout(new GridLayout(3, 1, 0, 10));
 		
 		JButton btnNewButton_2 = new JButton("Hasta Girişi");
@@ -68,17 +64,20 @@ public class admin_doktorLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				frame1 f1 = new frame1();
 				f1.setVisible(true);
+				admin_doktorLogin.this.setVisible(false);
 			}
 		});
 		butonlar.add(btnNewButton_2);
-		
-		JButton btnNewButton_1 = new JButton("Doktor Girişi");
-		btnNewButton_1.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		butonlar.add(btnNewButton_1);
-		
-		JButton btnNewButton = new JButton("admin");
-		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		butonlar.add(btnNewButton);
+
+		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
+		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton_2.gridx = 0;
+		gbc_btnNewButton_2.gridy = 1;
+		butonlar.add(btnNewButton_2, gbc_btnNewButton_2);
+
+
+
 		
 		JPanel login = new JPanel();
 		login.setBackground(Color.LIGHT_GRAY);
@@ -86,28 +85,28 @@ public class admin_doktorLogin extends JFrame {
 		contentPane.add(login);
 		login.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Parola:");
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(6, 146, 161, 40);
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		login.add(lblNewLabel_1);
+		JLabel label_parola = new JLabel("Parola:");
+		label_parola.setFont(new Font("Lucida Grande", Font.BOLD, 18));
+		label_parola.setBounds(6, 146, 161, 40);
+		label_parola.setHorizontalAlignment(SwingConstants.LEFT);
+		login.add(label_parola);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("T.C. Numarası:");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1.setFont(new Font("Lucida Grande", Font.BOLD, 18));
-		lblNewLabel_1_1.setBounds(6, 34, 161, 40);
-		login.add(lblNewLabel_1_1);
-		
-		txtTcNo = new JTextField();
+		JLabel label_tc = new JLabel("T.C. Numarası:");
+		label_tc.setHorizontalAlignment(SwingConstants.LEFT);
+		label_tc.setFont(new Font("Lucida Grande", Font.BOLD, 18));
+		label_tc.setBounds(6, 34, 161, 40);
+		login.add(label_tc);
+		//PAROLA
+		txtTcNo =new JPasswordField();
 		txtTcNo.setFont(new Font("Menlo", Font.PLAIN, 13));
-		txtTcNo.setText("Parola");
+		txtTcNo.setText("");
 		txtTcNo.setBounds(6, 185, 358, 48);
 		login.add(txtTcNo);
 		txtTcNo.setColumns(10);
-		
+		//TCNO
 		textField = new JTextField();
 		textField.setFont(new Font("Menlo", Font.PLAIN, 13));
-		textField.setText("TC NO");
+		textField.setText("");
 		textField.setColumns(10);
 		textField.setBounds(6, 71, 358, 48);
 		login.add(textField);
@@ -116,6 +115,18 @@ public class admin_doktorLogin extends JFrame {
 		btnNewButton_3_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnNewButton_3_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				User h=new User();
+				boolean key;
+				key=h.login(textField.getText(),txtTcNo.getText());
+				if(key){
+					adminPage ad = null;
+					ad = new adminPage();
+					ad.setVisible(true);
+					admin_doktorLogin.this.setVisible(false);
+
+				}
+
+
 			}
 		});
 		btnNewButton_3_1.setBounds(216, 256, 173, 48);

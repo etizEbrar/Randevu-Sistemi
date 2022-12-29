@@ -1,8 +1,13 @@
 package View;
 
+import Model.Hasta;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class signUp extends JFrame {
 
@@ -88,7 +93,7 @@ public class signUp extends JFrame {
 		telNoLabel.setBounds(90, 401, 197, 16);
 		contentPane.add(telNoLabel);
 		
-		sifreTextField = new JTextField();
+		sifreTextField = new JPasswordField();
 		sifreTextField.setColumns(10);
 		sifreTextField.setBounds(90, 344, 266, 37);
 		contentPane.add(sifreTextField);
@@ -102,6 +107,25 @@ public class signUp extends JFrame {
 		KayıtTamamlaButon.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		KayıtTamamlaButon.setBounds(488, 374, 236, 122);
 		contentPane.add(KayıtTamamlaButon);
+
+		KayıtTamamlaButon.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Hasta h=new Hasta();
+				boolean key;
+				key=h.register(adTextField.getText(),soyadTextField .getText(),tcTextField.getText(),telNoTextField.getText(),sifreTextField.getText());
+				if(key){
+					hastaPage ad = null;
+					try {
+						ad = new hastaPage();
+					} catch (SQLException ex) {
+						throw new RuntimeException(ex);
+					}
+					ad.setVisible(true);
+					signUp.this.setVisible(false);
+			}
+		}});
+
 		
 		
 	}

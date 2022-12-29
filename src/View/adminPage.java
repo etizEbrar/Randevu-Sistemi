@@ -215,6 +215,7 @@ public class adminPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				frame1 f1 = new frame1();
 				f1.setVisible(true);
+				adminPage.this.setVisible(false);
 			}
 		});
 		güvenliCıkıs.setBounds(677, 6, 117, 29);
