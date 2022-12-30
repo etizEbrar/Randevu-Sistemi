@@ -10,9 +10,6 @@ public class Admin extends User {
     Statement st = null;
     ResultSet rs = null;
     PreparedStatement preparedStatement = null;
-   // public Admin() {
-       // super(ad, soyad);
-    //}
 
     public int id;
 
@@ -43,11 +40,11 @@ public class Admin extends User {
             rs = st.executeQuery("SELECT * FROM saglikkurumu");
             while (rs.next()) {
                 obj = new SaglikKurumu ();
-               obj.setId(rs.getInt("saglikKurumuID"));
+             //  obj.setId(rs.getInt("saglikKurumuID"));
                obj.setIsim(rs.getString("name"));
                 obj.setIl(rs.getString("il"));
                obj.setIlce(rs.getString("ilce"));
-               obj.setKategori(rs.getInt("kategoriID"));
+              // obj.setKategori(rs.getInt("kategoriID"));
 
                 list.add(obj);
 

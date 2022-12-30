@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class admin_doktorLogin extends JFrame {
 
@@ -120,7 +121,11 @@ public class admin_doktorLogin extends JFrame {
 				key=h.login(textField.getText(),txtTcNo.getText());
 				if(key){
 					adminPage ad = null;
-					ad = new adminPage();
+					try {
+						ad = new adminPage();
+					} catch (SQLException ex) {
+						throw new RuntimeException(ex);
+					}
 					ad.setVisible(true);
 					admin_doktorLogin.this.setVisible(false);
 

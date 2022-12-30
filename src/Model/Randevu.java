@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Randevu {
+   public class Randevu {
     DBConnection conn = new DBConnection();
     Connection con = conn.connDb();
     Statement st = null;
@@ -17,6 +17,25 @@ public class Randevu {
     public Hasta hastaId;
     public Doktor doktorId;
 
+    public void setDoktor(String doktor) {
+        this.doktor = doktor;
+    }
+
+    public String getDoktor() {
+        return doktor;
+    }
+
+    public  String doktor;
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public  String date;
     public Doktor getDoktorId() {
         return doktorId;
     }
@@ -98,8 +117,88 @@ public class Randevu {
 
         return doctors;
     }
+    public boolean addRandevu(String il, String ilce, String hastane,String klinik,String doktor,String date) throws SQLException {
+        String query = "INSERT INTO hastaRandevu " + "(il,ilce,hastane,klinik,doktor,date) VALUES" + "(?,?,?,?,?,?)";
+        boolean key = false;
+        try {
+            st = con.createStatement();
+            preparedStatement = con.prepareStatement(query);
+            preparedStatement.setString(1, il);
+            preparedStatement.setString(2, ilce);
+            preparedStatement.setString(3, hastane);
+            preparedStatement.setString(4, klinik);
+            preparedStatement.setString(5, doktor);
+            preparedStatement.setString(6, date);
+            preparedStatement.executeUpdate();
+            key = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (key)
+            return true;
+        else
+            return false;
+    }
 
+    public ArrayList<Randevu> getHastaList() throws SQLException {
+        ArrayList<Randevu> list = new ArrayList<>();
+        Randevu obj;
+        Connection con = conn.connDb();
+
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM hastaRandevu ");
+            while (rs.next()) {
+                obj = new Randevu();
+                obj.setDoktor(rs.getString("doktor"));
+                obj.setDate(rs.getString("date"));
+                list.add(obj);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            st.close();
+            rs.close();
+            con.close();
+        }
+
+        return list;
+    }
+    public ArrayList<SaglikKurumu> getList() throws SQLException {
+        ArrayList<SaglikKurumu> list = new ArrayList<>();
+        SaglikKurumu obj;
+
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM saglikkurumu");
+            while (rs.next()) {
+                obj = new SaglikKurumu ();
+                //  obj.setId(rs.getInt("saglikKurumuID"));
+                obj.setIsim(rs.getString("name"));
+                obj.setIl(rs.getString("il"));
+                obj.setIlce(rs.getString("ilce"));
+                // obj.setKategori(rs.getInt("kategoriID"));
+
+                list.add(obj);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            //   st.close();
+            //rs.close();
+            //con.close();
+            System.out.println("list olustu");
+        }
+
+        return list;
+    }
 }
+
+
+
+
+
 
 
 

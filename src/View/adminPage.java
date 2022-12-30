@@ -1,10 +1,17 @@
 package View;
 
+import Helper.Helper;
+import Model.Admin;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 public class adminPage extends JFrame {
 
@@ -39,7 +46,7 @@ public class adminPage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public adminPage() {
+	public adminPage() throws SQLException {
 		setResizable(false);
 		setTitle("admin İşlemleri");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,67 +69,7 @@ public class adminPage extends JFrame {
 		tabbedPane.setBounds(6, 96, 788, 470);
 		contentPane.add(tabbedPane);
 
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Kurum Güncelle", null, panel_1, null);
-		panel_1.setLayout(null);
 
-		JButton kurumGüncelleButon = new JButton("Kurum güncelle");
-		kurumGüncelleButon.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		kurumGüncelleButon.setBounds(456, 306, 230, 89);
-		panel_1.add(kurumGüncelleButon);
-
-		kurumGüncelleTable = new JTable();
-		kurumGüncelleTable.setBounds(6, 6, 338, 412);
-		panel_1.add(kurumGüncelleTable);
-
-		JLabel kurumGüncelleAd = new JLabel("Adı:");
-		kurumGüncelleAd.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		kurumGüncelleAd.setBounds(384, 16, 61, 16);
-		panel_1.add(kurumGüncelleAd);
-
-		adTextfield = new JTextField();
-		adTextfield.setBounds(384, 33, 198, 26);
-		panel_1.add(adTextfield);
-		adTextfield.setColumns(10);
-
-		JLabel kurumGüncelleİl = new JLabel("İl:");
-		kurumGüncelleİl.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		kurumGüncelleİl.setBounds(384, 71, 61, 16);
-		panel_1.add(kurumGüncelleİl);
-
-		ilTextfield = new JTextField();
-		ilTextfield.setColumns(10);
-		ilTextfield.setBounds(384, 88, 198, 26);
-		panel_1.add(ilTextfield);
-
-		JLabel kurumGüncelleİlçe = new JLabel("İlçe:");
-		kurumGüncelleİlçe.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		kurumGüncelleİlçe.setBounds(384, 128, 61, 16);
-		panel_1.add(kurumGüncelleİlçe);
-
-		ilçeTextfield = new JTextField();
-		ilçeTextfield.setColumns(10);
-		ilçeTextfield.setBounds(384, 145, 198, 26);
-		panel_1.add(ilçeTextfield);
-
-		JLabel kurumGüncelleAdres = new JLabel("Adres:");
-		kurumGüncelleAdres.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		kurumGüncelleAdres.setBounds(384, 185, 61, 16);
-		panel_1.add(kurumGüncelleAdres);
-
-		adresTextfield = new JTextField();
-		adresTextfield.setColumns(10);
-		adresTextfield.setBounds(384, 202, 198, 26);
-		panel_1.add(adresTextfield);
-
-		JLabel kurumGüncelleKategori = new JLabel("Kategori:");
-		kurumGüncelleKategori.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		kurumGüncelleKategori.setBounds(384, 238, 88, 27);
-		panel_1.add(kurumGüncelleKategori);
-
-		JComboBox kategoriComboBox = new JComboBox();
-		kategoriComboBox.setBounds(384, 266, 198, 27);
-		panel_1.add(kategoriComboBox);
 
 		String[] hastaneTurleri = {"hastane","diş hastanesi","sağlık ocağı"};
 
@@ -134,6 +81,16 @@ public class adminPage extends JFrame {
 		kurumEkleBbuton.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		kurumEkleBbuton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Admin a=new Admin();
+				String s;
+				s="hastane";
+				try {
+					a.addSaglikKurumu(textFieldKurumadı.getText(),textFieldİl.getText(),textFieldİlçe.getText(),s);
+					Helper.showMsg("success");
+
+				} catch (SQLException ex) {
+					throw new RuntimeException(ex);
+				}
 			}
 		});
 		kurumEkleBbuton.setBounds(458, 279, 230, 89);
@@ -197,9 +154,42 @@ public class adminPage extends JFrame {
 		kurumSilButon.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		panel_2.add(kurumSilButon);
 
-		kurumSilTable = new JTable();
+
+		//KURUM SILL
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Ad");
+		model.addColumn("Soyad");
+
+		Admin r=new Admin();
+		for (int i = 0; i < r.getList().size(); i++) {
+			model.addRow(new String[]{r.getList().get(i).getIsim(),r.getList().get(i).getIl(),r.getList().get(i).getIlce()});
+		}
+		kurumSilTable = new JTable(model);
 		kurumSilTable.setBounds(6, 6, 399, 412);
 		panel_2.add(kurumSilTable);
+
+		//SATIR SİL
+
+		// JTable'a bir MouseListener ekleyelim
+		kurumSilTable.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Fare tıklandığında, tıklanan satırı silelim
+				int row = kurumSilTable.rowAtPoint(e.getPoint()); // Tıklanan satırı bulalım
+				kurumSilButon.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						model.removeRow(row); // Satırı silelim
+						Helper.showMsg("success");
+
+					}
+				});
+
+			}
+		});
+
+
+
+
 
 		JButton güvenliCıkıs = new JButton("Güvenli Çıkış");
 		güvenliCıkıs.addActionListener(new ActionListener() {
